@@ -19,9 +19,7 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # set up connection to db
-# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://localhost:5432/myblog"
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
-# app.config['SQLALCHEMY_DATABASE_URI']="postgresql://localhost:5432/myblog2"
 app.config['SQLALCHEMY_DATABASE_URI']="postgresql://localhost:5432/trivia_db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -55,5 +53,5 @@ app.register_blueprint(users)
 # Add this to the bottom of __init__.py
 
 # Linking and registering blog_posts views Blueprint
-from myapp.blog_posts.views import blog_posts
-app.register_blueprint(blog_posts)
+from myapp.trivia.views import trivias
+app.register_blueprint(trivias)

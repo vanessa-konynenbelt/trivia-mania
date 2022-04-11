@@ -5,8 +5,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 from myapp import db
 from myapp.models import User
 from myapp.users.forms import RegistrationForm, LoginForm, UpdateUserForm
-# Include BlogPost with your model imports
-from myapp.models import User, BlogPost
+from myapp.models import User, Trivia
 
 users = Blueprint('users', __name__) # dont forget to register this in __init__.py 
 
@@ -76,8 +75,8 @@ def account():
 def user_posts(username):
     page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
-    blog_posts = BlogPost.query.filter_by(author=user).order_by(BlogPost.date.desc()).paginate(page=page, per_page=5) 
-    return render_template('user_blog_posts.html', blog_posts=blog_posts, user=user)
+    trivias = Trivia.query.filter_by(author=user).order_by(Trivia.date.desc()).paginate(page=page, per_page=5) 
+    return render_template('user_trivia.html', trivias=trivias, user=user)
 
 
     

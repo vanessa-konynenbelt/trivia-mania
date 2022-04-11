@@ -6,14 +6,17 @@
   background-color: #333;
 }
 
-.nav-link {
+ .nav-link {
   float: left;
+  color: white;
+  padding: 14px 16px;
 }
 
 .nav-link a {
   display: block;
   color: white;
   text-align: center;
+  justify-content: center;
   padding: 14px 16px;
   text-decoration: none;
 }
@@ -22,3 +25,9 @@
 .nav-link a:hover {
   background-color: #111;
 }
+
+.title {
+  display: flex; 
+  justify-content: center;
+}
+

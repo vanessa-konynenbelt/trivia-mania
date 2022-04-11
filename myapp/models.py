@@ -6,7 +6,6 @@ from flask_login import UserMixin
 from datetime import datetime
 
 #login management 
-# allows us to use this in templates for isUser stuff 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
@@ -18,7 +17,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
-    posts = db.relationship('BlogPost', backref='author', lazy=True)
+    posts = db.relationship('Trivia', backref='author', lazy=True)
 
     # Relationships will go here
 
@@ -34,8 +33,8 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"Username {self.username}"
 
-class BlogPost(db.Model):
-    __tablename__ = 'blog_posts'
+class Trivia(db.Model):
+    __tablename__ = 'trivias'
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(140), nullable=False)
