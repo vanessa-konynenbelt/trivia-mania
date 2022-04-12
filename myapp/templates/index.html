@@ -3,22 +3,22 @@
     <div class="title">
         <h1>Trivia Mania</h1>
     </div>
-    <div class="container">
+    <div class="trivia-container">
         {% for post in trivias.items %}
             <div class="card">
                 <div class="car-boy">
                     <h2>
-                        <a class="card-title" href="{{url_for('trivias.trivia', trivia_id=post.id)}}">{{post.title}}</a>
+                        <a href="{{url_for('trivias.trivia', trivia_id=post.id)}}" class="card-title"><button class = "button">{{post.title}}</button></a>
                         <!-- <a href="{{url_for('users.user_posts', username=post.author.username)}}">Written by: {{post.author.username}}</a> -->
                     </h2>
-                    <p>Published on: {{post.date.strftime('%Y - %m - %d')}}</p>
-                    <a class="btn btn-primary" href="{{url_for('trivias.trivia', trivia_id=post.id)}}">Play</a>
+                    <!-- <p>Published on: {{post.date.strftime('%Y - %m - %d')}}</p>
+                    <a class="btn btn-primary" href="{{url_for('trivias.trivia', trivia_id=post.id)}}">Play</a> -->
                 </div>
             </div>
         {% endfor %}
     </div>
 
-    <nav aria-label="Page Navigation example">
+    <!-- <nav aria-label="Page Navigation example">
         <ul class="pagination justify-content-center">
             {% for page_num in trivias.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
                 {% if trivias.page == page_num %}
@@ -32,5 +32,5 @@
                 {% endif %}
             {% endfor %}
         </ul>
-    </nav>
+    </nav> -->
 {% endblock %}

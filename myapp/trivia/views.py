@@ -9,7 +9,7 @@ trivias = Blueprint('trivias', __name__)
 @trivias.route('/create', methods=['GET', 'POST'])
 @login_required
 def create_post():
-    form = Form()
+    form = TriviaForm()
     if form.validate_on_submit():
         trivia = Trivia(title=form.title.data, text=form.text.data, user_id=current_user.id)
         db.session.add(trivia)
@@ -17,7 +17,7 @@ def create_post():
         flash('Trivia Created')
         print('Trivia was created')
         return redirect(url_for('core.index'))
-    return render_template('create_post.html', form=form)
+    return render_template('create_trivia.html', form=form)
 
 # Make sure the trivia_id is an integer!
 @trivias.route('/<int:trivia_id>')
@@ -47,7 +47,7 @@ def update(trivia_id):
         form.title.data = trivia.title
         form.text.data = trivia.text
 
-    return render_template('create_post.html',title='Updating',form=form)
+    return render_template('create_trivia.html',title='Updating',form=form)
 
 @trivias.route('/<int:trivia_id>/delete',methods=['GET','POST'])
 @login_required
