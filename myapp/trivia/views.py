@@ -18,7 +18,7 @@ def create_trivia():
         print('Trivia was created')
         return redirect(url_for('core.index'))
     questionForm = QuestionForm()
-    questionForm.trivia_id.choices = [(row.title, row.title) for row in Trivia.query.all()] #where user_id=current_user
+    questionForm.trivia_id.choices = [(row.id, row.title) for row in Trivia.query.all()] #where user_id=current_user
     if questionForm.validate_on_submit():
         question = Question(question=questionForm.question.data, answer=questionForm.answer.data, trivia_id = questionForm.trivia_id.data)
         db.session.add(question)
