@@ -4,10 +4,10 @@ from wtforms import StringField, SubmitField, TextAreaField, Form, FormField, Fi
 from wtforms.validators import DataRequired
 
 class questionForm(Form):
-    question = TextAreaField('Question', validators=[DataRequired()])
-    answer = StringField('Answer', validators=[DataRequired()])
+    question = TextAreaField('Q', validators=[DataRequired()])
+    answer = StringField('A', validators=[DataRequired()])
 
 class TriviaForm(FlaskForm):
-    title = StringField('title', validators=[DataRequired()])  
-    questions = FieldList(FormField(questionForm), min_entries=5, max_entries=16)
+    title = StringField('Title', validators=[DataRequired()])  
+    question = FieldList(FormField(questionForm), min_entries=5, max_entries=16)
     submit = SubmitField('Post')

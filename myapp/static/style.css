@@ -1,3 +1,21 @@
+.form-control {
+  list-style: none
+}
+
+.form-control  > li {
+  margin: 1.5rem;
+}
+
+.form-group {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+textarea {
+  width: 50vw;
+}
+
 .nav {
   list-style-type: none;
   margin: 0;
@@ -72,9 +90,11 @@
 .container {
   margin-top: 1rem;
   display: flex; 
-  justify-content: center;
-  align-items: center;
+  justify-content: center !important;
+  align-items: center !important;
   flex-direction: column; 
   flex-wrap: wrap;
 }
+
+
 
