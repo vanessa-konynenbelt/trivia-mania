@@ -20,7 +20,6 @@ class User(db.Model, UserMixin):
     posts = db.relationship('Trivia', backref='author', lazy=True)
 
     # Relationships will go here
-
     def __init__(self, email, username, password):
         self.email = email
         self.username = username
@@ -38,14 +37,20 @@ class Trivia(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(140), nullable=False)
-    text = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-
-    def __init__(self, title, text, user_id):
+    def __init__(self, title, user_id):
         self.title = title
-        self.text = text
         self.user_id = user_id
-    
-    def __repr__(self):
-        return f"Post ID: {self.id} -- Date: {self.date} --- Title: {self.Title}"
+
+class Question(db.Model):
+    __tablename__ = 'questions'
+    id = db.Column(db.Integer, primary_key=True)
+    question = db.Column(db.Text, nullable=False)
+    answer = db.Column(db.Text, nullable=False)
+    trivia_id = db.Column(db.Integer, db.ForeignKey('trivias.id'), nullable=False)
+
+    def __init__(self, question, answer, trivia_id):
+        self.question = question
+        self.answer = answer
+        self.trivia_id = trivia_id
