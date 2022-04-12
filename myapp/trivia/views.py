@@ -1,8 +1,8 @@
 from flask import render_template, url_for, flash, request, redirect, Blueprint, abort
 from flask_login import current_user, login_required
 from myapp import db 
-from myapp.models import Trivia, Question
-from myapp.trivia.forms import TriviaForm, QuestionForm
+from myapp.models import Trivia 
+from myapp.trivia.forms import TriviaForm 
 
 trivias = Blueprint('trivias', __name__)
 
@@ -17,30 +17,7 @@ def create_trivia():
         flash('Trivia Created')
         print('Trivia was created')
         return redirect(url_for('core.index'))
-    questionForm = QuestionForm()
-    questionForm.trivia_id.choices = [(row.id, row.title) for row in Trivia.query.all()] #where user_id=current_user
-    if questionForm.validate_on_submit():
-        question = Question(question=questionForm.question.data, answer=questionForm.answer.data, trivia_id = questionForm.trivia_id.data)
-        db.session.add(question)
-        db.session.commit()
-        flash('Question Created')
-        print('Question was created')
-        return redirect(url_for('core.index'))
-    return render_template('create_trivia.html', triviaForm=triviaForm, questionForm=questionForm)
-
-
-@trivias.route('/create', methods=['GET', 'POST'])
-@login_required
-def create_question():
-    questionForm = QuestionForm()
-    if questionForm.validate_on_submit():
-        question = Question(question=questionForm.question.data, answer=questionForm.answer.data, trivia_id = questionForm.trivia_id.data)
-        db.session.add(question)
-        db.session.commit()
-        flash('Question Created')
-        print('Question was created')
-        return redirect(url_for('core.index'))
-    return render_template('create_trivia.html', questionForm=questionForm)
+    return render_template('create_trivia.html', triviaForm=triviaForm)
 
 # Make sure the trivia_id is an integer!
 @trivias.route('/<int:trivia_id>')

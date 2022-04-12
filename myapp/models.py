@@ -43,14 +43,3 @@ class Trivia(db.Model):
         self.title = title
         self.user_id = user_id
 
-class Question(db.Model):
-    __tablename__ = 'questions'
-    id = db.Column(db.Integer, primary_key=True)
-    question = db.Column(db.Text, nullable=False)
-    answer = db.Column(db.Text, nullable=False)
-    trivia_id = db.Column(db.Integer, db.ForeignKey('trivias.id'), nullable=False)
-
-    def __init__(self, question, answer, trivia_id):
-        self.question = question
-        self.answer = answer
-        self.trivia_id = trivia_id
