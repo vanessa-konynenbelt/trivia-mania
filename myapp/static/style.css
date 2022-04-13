@@ -71,6 +71,7 @@ textarea {
 }
 
 .button {
+  border-radius: 7%;
   background-color: white;
   width: 16rem;
   height: 8rem;
