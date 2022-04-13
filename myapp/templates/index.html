@@ -1,22 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="title">
-        <h1>Trivia Mania</h1>
-    </div>
-    
+    <section>
+        <div class="title head">
+            <h1>Trivia Mania</h1>
+        </div>
+    </section>
     <div class="trivia-container">
         {% for post in trivias.items %}
             <div class="card">
                 <div class="car-boy">
                     <h2>
                         <a href="{{url_for('trivias.trivia', trivia_id=post.id)}}" class="card-title"><button class = "button">{{post.title}}</button></a>
-                        <!-- <a href="{{url_for('users.user_posts', username=post.author.username)}}">Written by: {{post.author.username}}</a> -->
                     </h2>
-                    <!-- <p>Published on: {{post.date.strftime('%Y - %m - %d')}}</p>
-                    <a class="btn btn-primary" href="{{url_for('trivias.trivia', trivia_id=post.id)}}">Play</a> -->
                 </div>
             </div>
         {% endfor %}
+       
     </div>
-
+    <section>
+        <div class="foot"> </div>
+    </section>
 {% endblock %}
