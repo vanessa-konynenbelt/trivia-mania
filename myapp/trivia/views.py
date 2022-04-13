@@ -11,7 +11,9 @@ trivias = Blueprint('trivias', __name__)
 def create_trivia():
     triviaForm = TriviaForm()
     if triviaForm.validate_on_submit():
-        trivia = Trivia(title = triviaForm.title.data, user_id=current_user.id)
+        for qanda in triviaForm.QandA:
+            trivia = Trivia(q=qanda.question.data, a=qanda.answer.data)
+        # trivia = Trivia(title = triviaForm.title.data, user_id=current_user.id)
         db.session.add(trivia)
         db.session.commit()
         flash('Trivia Created')
@@ -38,16 +40,12 @@ def update(trivia_id):
 
     if form.validate_on_submit():
         trivia.title = form.title.data
-        # trivia.question = form.question.data
-        # trivia.answer = form.answer.data
         db.session.commit()
         flash('Trivia Updated')
         return redirect(url_for('trivias.trivia',trivia_id=trivia.id))
 
     elif request.method == 'GET':
         form.title.data = trivia.title
-        # form.question.data = trivia.question
-        # form.answer.data = trivia.answer
 
     return render_template('create_trivia.html',title='Updating',form=form)
 
