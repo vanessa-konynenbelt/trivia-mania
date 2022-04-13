@@ -12,8 +12,13 @@ def create_trivia():
     triviaForm = TriviaForm()
     if triviaForm.validate_on_submit():
         for qanda in triviaForm.QandA:
-            trivia = Trivia(q=qanda.question.data, a=qanda.answer.data)
-        # trivia = Trivia(title = triviaForm.title.data, user_id=current_user.id)
+           print('++++++++++++++++++++++++++++++++')
+           print(qanda.data['question'])
+           print(qanda.data['answer'])
+           print(triviaForm.title.data)
+           print(current_user.id)
+           print('++++++++++++++++++++++++++++++++')
+           trivia = Trivia(question=qanda.data['question'], answer=qanda.data['answer'], title = triviaForm.title.data, user_id=current_user.id)
         db.session.add(trivia)
         db.session.commit()
         flash('Trivia Created')

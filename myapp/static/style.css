@@ -1,3 +1,7 @@
+* {
+  font-weight: 200;
+  font-family: helvetica neue, helvetica, arial, sans-serif;
+}
 .form-control {
   list-style: none
 }
@@ -14,6 +18,12 @@
 }
 textarea {
   width: 50vw;
+}
+
+#title {
+  background-color: white;
+  color: black;
+  font-weight: bold;
 }
 
 .nav {
@@ -41,7 +51,8 @@ textarea {
 
 /* Change the link color to #111 (black) on hover */
 .nav-link a:hover {
-  background-color: #111;
+  background-color: lightslategrey;
+  border-radius: 7%;
 }
 
 .title {
@@ -63,11 +74,17 @@ textarea {
   background-color: white;
   width: 16rem;
   height: 8rem;
+  margin: 1rem;
+}
+
+.button:hover {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 6s ease infinite;
 }
 
 .btn-secondary {
   font-size: 1em;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display: flex; 
   justify-content: center;
   align-items: center;
@@ -88,13 +105,25 @@ textarea {
 }
 
 .container {
-  margin-top: 1rem;
   display: flex; 
-  justify-content: center !important;
-  align-items: center !important;
   flex-direction: column; 
-  flex-wrap: wrap;
+  background: linear-gradient(-45deg, #c9c9c9, #f7f0f3, #b5b5b5, #898989);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
+  margin: none !important;
 }
 
 
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
