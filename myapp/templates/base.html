@@ -9,38 +9,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
 </head>
 <body>
-    <ul class="nav">
-        <li class="nav-link" id="title">
+    <div class="navbar">
+        <div class="title-name">
             <p>Trivia Mania</p>
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('core.index')}}">Home</a>
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('core.info')}}">About</a>
-        </li>
-        {% if current_user.is_authenticated %}
-        <li class="nav-link">
-            <a href="{{url_for('users.logout')}}">Log Out</a>
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('users.account')}}">Account</a>
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('trivias.create_trivia')}}">Add New</a> 
-        </li>
-        {% else %}
-        <li class="nav-link">
-            <a href="{{url_for('users.login')}}">Log In</a>
-        </li>
-        <li class="nav-link">
-            <a href="{{url_for('users.register')}}">Register</a>
-        </li>
-        {% endif %}
-    </ul>
+        </div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="nav-links">
+            <ul >   
+                <li class="nav-link">
+                    <a href="{{url_for('core.index')}}">Home</a>
+                </li>
+                <li class="nav-link">
+                    <a href="{{url_for('core.info')}}">About</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-link">
+                    <a href="{{url_for('users.logout')}}">Log Out</a>
+                </li>
+                <li class="nav-link">
+                    <a href="{{url_for('users.account')}}">Account</a>
+                </li>
+                <li class="nav-link">
+                    <a href="{{url_for('trivias.create_trivia')}}">Add New</a> 
+                </li>
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-link">
+                        <a href="{{url_for('users.login')}}">Log In</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{url_for('users.register')}}">Register</a>
+                    </li>
+                </ul>
+                {% endif %}
+            </ul>
+        </div>
+        
+    </div> 
     <div class="container">
         {% block content %}
 

@@ -2,6 +2,88 @@
   font-weight: 200;
   font-family: helvetica neue, helvetica, arial, sans-serif;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+}
+
+.title-name {
+  font-size: 1.5rem;
+  margin: 1rem;
+  margin-left: 1.5rem;
+}
+
+.nav-links ul {
+  margin: 0; 
+  padding-right: 1rem; 
+  display: flex;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  display: block;
+}
+
+.nav-links li:hover {
+  background-color: lightslategray;
+  border-radius: 7%;
+}
+
+
+.toggle-button {
+  position: absolute;
+  top: 3rem;
+  right: 2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px; 
+  height: 32px;
+}
+
+.toggle-button .bar{
+  height: 3px; 
+  width: 100%; 
+  background-color: white; 
+  border-radius: 10px;
+}
+
+
+@media (max-width: 1000px) {
+  .toggle-button {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+    width:100%;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links ul {
+    flex-direction: column;
+    width: 100%
+  }
+  .nav-links li {
+    text-align: center;
+  }
+  .nav-links li a {
+    padding: 0.5rem 1rem;
+  }
+}
+
+
 .form-control {
   list-style: none
 }
@@ -21,44 +103,8 @@ textarea {
   width: 50vw;
 }
 
-#title {
-  background-color: white;
-  color: black;
-}
-
-.nav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  /* position: fixed;
-  top: 0; 
-  width: 100%;  */
-}
-
- .nav-link {
-  float: left;
-  color: white;
-  padding: 14px 16px;
-}
-
-.nav-link a {
-  display: block;
-  color: white;
-  text-align: center;
-  justify-content: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.nav-link a:hover {
-  background-color: lightslategray;
-  /* background-color: #786969; */
-  border-radius: 7%;
-}
-
 .title-primary {
+  width: 100%;
   display: flex; 
   justify-content: center;
   align-items: center;
@@ -106,7 +152,7 @@ input {
   align-items: center;
 }
 
-.container {
+.my-container {
   display: flex; 
   flex-direction: column; 
   height: 40vh;
