@@ -9,20 +9,16 @@
     <form class="form" method="POST">
         {{form.hidden_tag()}}
         <div class="form-el">
-            <div class="label">{{form.email.label}}</div>
-            <div class="input">{{form.email}}</div>
+            {{form.email.label}}{{form.email}}
         </div>
         <div class="form-el">
-            <div class="label">{{form.username.label}}</div>
-            <div class="input">{{form.username}}</div>
+            {{form.username.label}}{{form.username}}
         </div>
         <div class="form-el">
-            <div class="label">{{form.password.label}}</div>
-            <div class="input">{{form.password}}</div>
+            {{form.password.label}}{{form.password}}
         </div>
         <div class="form-el">
-            <div class="label">{{form.pass_confirm.label}}</div>
-            <div class="input">{{form.pass_confirm}}</div>
+            {{form.pass_confirm.label}}{{form.pass_confirm}}
         </div>
         <div class="form-btn">
             <div class="btn-secondary">{{form.submit()}}</div>
