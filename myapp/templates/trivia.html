@@ -29,7 +29,7 @@
       {% endfor %}
       {% if trivias[0].author == current_user %}
       <div class="btns-secondary">
-        <a class="btn-secondary" href="{{ url_for('trivias.update', trivia_id=1) }}">Edit</a>
+        <a class="btn-secondary" href="{{ url_for('trivias.update', title=title) }}">Edit</a>
         <form action="{{ url_for('trivias.delete_post', trivia_id=2) }}" method="POST">
           <input class="btn-secondary" type="submit" value="Delete">
         </form>

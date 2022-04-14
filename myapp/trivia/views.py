@@ -25,26 +25,27 @@ def trivia(title):
     trivias = Trivia.query.filter_by(title=title).all()  
     return render_template('trivia.html', title=title, trivias=trivias)
 
-@trivias.route('/<int:trivia_id>/update', methods=['GET','POST'])
+@trivias.route('/update/<string:title>', methods=['GET','POST'])
 @login_required
-def update(trivia_id):
-    trivia = Trivia.query.get_or_404(trivia_id)
-
-    if trivia.author != current_user:
+def update(title):
+    trivias = Trivia.query.filter_by(title=title).all()  
+    # TODO case: different users create sets with the same name
+    if trivias[0].author != current_user:
         abort(403)
-
-    form = TriviaForm()
-
-    if form.validate_on_submit():
-        trivia.title = form.title.data
+    triviaForm = TriviaForm()
+    print('idk what this form looks like')
+    print(triviaForm)
+    if triviaForm.validate_on_submit():
+        trivias[0].title = triviaForm.title.data
         db.session.commit()
-        flash('Trivia Updated')
-        return redirect(url_for('trivias.trivia',trivia_id=trivia.id))
+        print('Trivia Updated')
+        return redirect(url_for('trivias.trivia', title=title, trivias=trivias))
 
     elif request.method == 'GET':
-        form.title.data = trivia.title
+        print('you are elif')
+        triviaForm.title.data = trivias[0].title
 
-    return render_template('create_trivia.html',title='Updating',form=form)
+    return render_template('create_trivia.html', title=title, triviaForm=triviaForm)
 
 @trivias.route('/<int:trivia_id>/delete',methods=['GET','POST'])
 @login_required
