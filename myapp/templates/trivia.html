@@ -5,16 +5,20 @@
   <h2>Written by: {{trivias[0].author.username}}</h2>
   <h3>Published: {{ trivias[0].date.strftime('%B %d, %Y') }}</h3>
   {% for i in range(6) %}
-    {% if trivias[i].question|length %}
-      <div class="col-xs-12 col-sm-4 col-lg-3">
-        <article class="thumbnail">
-            <header>
-            <p>Question {{i+1}}</p>
-            </header>
-            <p class="flex-text">{{trivias[i].question}}</p>
-        </article>
+    {% if trivias[i].question|length and trivias[i].question|length%}
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <p>Question {{i+1}}</p>
+              <p>{{trivias[i].question}}</p>
+          </div> 
+          <div class="flip-card-back">
+              <p>Answer {{i+1}}</p>
+              <p>{{trivias[i].answer}}</p>
+          </div>
+        </div>
       </div>
-      {% endif %}
+    {% endif %}
   {% endfor %}
 </div>
 {% endblock content %}
