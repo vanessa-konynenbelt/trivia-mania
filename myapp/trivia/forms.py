@@ -9,5 +9,5 @@ class questionForm(Form):
  
 class TriviaForm(FlaskForm):
    title = StringField('Title', validators=[DataRequired()]) 
-   QandA = FieldList(FormField(questionForm), min_entries=6)
+   Question = FieldList(FormField(questionForm), min_entries=6)
    submit = SubmitField('Post')
