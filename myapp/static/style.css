@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
 }
+
 textarea {
   width: 50vw;
 }
@@ -66,7 +67,7 @@ textarea {
   font-weight: bold;
 }
 
-.btn-secondary input{
+.btn-secondary {
   font-size: 1em;
   border-radius: 10%;
   display: flex; 
@@ -75,36 +76,34 @@ textarea {
   text-decoration: none;
   background-color: rgb(239, 239, 239);
   color: black;
-  border: none;
   width: 4rem;
   height: 2rem;
-  margin: auto;
-  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19); */
-  /* position: absolute;
-  bottom: 0px; */
+  margin: 2rem;
+  border: none !important;
 }
 
 input {
   width: 12rem;
 }
 
-
-.btn-secondary:hover input:hover{
+.btn-secondary:hover {
   text-decoration: none;
   background-color: #333;
   color: white;
-  /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19); */
-  /* position: absolute;
-  bottom: 0px; */
 }
 
 .btns-secondary {
   display: flex; 
   flex-direction: row;
   align-items: baseline;
-  width: 80vw;
   height: 2rem;
-  position: relative;
+  margin: 2rem;
+}
+
+.parent-btns-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -114,11 +113,16 @@ input {
   margin: none !important;
 }
 
+.parent-trivia-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
 .form-container {
   display: flex; 
   justify-content: center;
   align-items: center;
-  
 }
 
 .form {
@@ -126,7 +130,7 @@ input {
   flex-direction: column;
   align-items: center;
   width: 20vw;
-  border: 1px solid red;
+  /* border: 1px solid green; */
 }
 
 .form-el {
@@ -135,7 +139,7 @@ input {
   justify-content: flex-end;
   margin: 1.75rem;
   gap: 1rem;
-  border: 1px solid green;
+  /* border: 1px solid red; */
 }
 
 .form-btn {
@@ -145,13 +149,13 @@ input {
 }
 
 .trivia-container {
-  height: 40vh;
+  width: 80%;
   margin-top: 2rem;
   display: flex; 
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: top;
+  align-items: center;
 }
-
 
 @keyframes gradient {
 	0% {
@@ -221,7 +225,6 @@ input {
   transform: skewY(-5deg);
 }
 
-
 .flip-card {
   background-color: transparent;
   width: 380px;
@@ -290,4 +293,9 @@ input {
   background-color: rgb(209, 216, 224);
   transition-duration: 0.25s;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.footer {
+  margin-bottom: 3rem;
 }
