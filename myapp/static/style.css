@@ -171,3 +171,27 @@ textarea {
   transform: skewY(-5deg);
 }
 
+.flex-row .thumbnail, .flex-row .caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  flex: 1 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.thumbnail .newCollection {
+  font-size: 3em;
+  margin: 25%;
+  border: none;
+  background-color: #fff;
+  text-align: center;
+}
+
+.thumbnail {
+  padding: 15px;
+  box-shadow: 0 2px 2px #aaa;
+}
