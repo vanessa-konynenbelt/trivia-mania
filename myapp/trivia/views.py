@@ -12,17 +12,7 @@ def create_trivia():
     triviaForm = TriviaForm()
     if triviaForm.validate_on_submit():
         for qanda in triviaForm.QandA:
-            print('++++++++++++++++++++++++++++++++')
-            print(qanda.data['question'])
-            print(qanda.data['answer'])
-            print(triviaForm.title.data)
-            print(current_user.id)
             trivia = Trivia(question=qanda.data['question'], answer=qanda.data['answer'], title = triviaForm.title.data, user_id=current_user.id)
-            print(trivia.question)
-            print(trivia.answer)
-            print(trivia.title)
-            print(trivia.user_id)
-            print('++++++++++++++++++++++++++++++++')
             db.session.add(trivia)
             db.session.commit()
         flash('Trivia Created')
@@ -30,14 +20,12 @@ def create_trivia():
         return redirect(url_for('core.index'))
     return render_template('create_trivia.html', triviaForm=triviaForm)
 
-# Make sure the trivia_id is an integer!
-@trivias.route('/<int:trivia_id>')
-def trivia(trivia_id):
-    trivia = Trivia.query.get_or_404(trivia_id) 
-    return render_template('trivia.html', title=trivia.title, date=trivia.date, post=trivia)
+@trivias.route('/trivia/<string:title>', methods=['GET'])
+def trivia(title):
+    trivias = Trivia.query.filter_by(title=title).all()  
+    return render_template('trivia.html', title=title, trivias=trivias)
 
-
-@trivias.route('/<int:trivia_id>/update',methods=['GET','POST'])
+@trivias.route('/<int:trivia_id>/update', methods=['GET','POST'])
 @login_required
 def update(trivia_id):
     trivia = Trivia.query.get_or_404(trivia_id)

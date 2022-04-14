@@ -1,18 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="jumbotron">
-  <h1>{{ post.title }}</h1>
-  <h2>Written by: {{post.author.username}}</h2>
-  <h3>Published: {{ post.date.strftime('%B %d, %Y') }}</h3>
-  <p>{{post.text}}</p>
-   {% if post.author == current_user %}
-     <div class="btns-secondary">
-       <a class="btn-secondary" href="{{ url_for('trivias.update', trivia_id=post.id) }}">Edit</a>
-       <form action="{{ url_for('trivias.delete_post', trivia_id=post.id) }}" method="POST">
-        <input class="btn-secondary" type="submit" value="Delete">
-      </form>
-      <a class="btn-secondary" href="{{url_for('core.index')}}">Back</a>
-     </div>
-   {% endif %}
+<div class="container">
+  <h1>{{title}}</h1>
+  <h2>Written by: {{trivias[0].author.username}}</h2>
+  <h3>Published: {{ trivias[0].date.strftime('%B %d, %Y') }}</h3>
+  {% for trivia in trivias %}
+    <div>{{ trivia.question }}</div>
+    <div>{{ trivia.answer }}</div>
+  {% endfor %}
 </div>
 {% endblock content %}

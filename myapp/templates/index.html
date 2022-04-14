@@ -1,20 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-    <!-- <section>
+    <section>
         <div class="title head">
             <h1>Trivia Mania</h1>
         </div>
-    </section> -->
+    </section>
     <div class="trivia-container">
-        {% for post in trivias.items %}
+        {% for title in titles %}
             <div class="card">
                 <div class="car-boy">
                     <h2>
-                        <a href="{{url_for('trivias.trivia', trivia_id=post.id)}}" class="card-title"><button class = "button">{{post.title}}</button></a>
+                        <a href="{{url_for('trivias.trivia', title=title)}}" class="card-title"><button class = "button">{{title}}</button></a>                     
                     </h2>
                 </div>
             </div>
         {% endfor %}
-       
     </div>
+    <!-- <section>
+        <div class="foot"> </div>
+    </section> -->
 {% endblock %}
