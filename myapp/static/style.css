@@ -120,25 +120,21 @@ textarea {
   display: flex; 
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
-  width: 40vw;
+  width: 20vw;
 }
 
 .form-el {
-  display: inline-block;
-  align-content: right;
-  text-align: right;
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
   margin: 2rem;
+  gap: 1rem;
 }
 
-.input {
-  float: right;
-}
-
-.label {
-  padding-right: 1rem;
-  display: inline-block;
-  text-align: right;
+.form-btn {
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
 }
 
 .trivia-container {
