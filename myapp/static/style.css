@@ -23,7 +23,6 @@ textarea {
 #title {
   background-color: white;
   color: black;
-  font-weight: bold;
 }
 
 .nav {
@@ -75,27 +74,6 @@ textarea {
   align-items: top;
   flex-direction: row; 
   flex-wrap: wrap;
-}
-
-.button {
-  border-radius: 7%;
-  background-color: white;
-  width: 16rem;
-  height: 8rem;
-  margin: 1rem;
-}
-
-.button:hover {
-  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
-  /* background-color: rgb(152, 152, 152);
-	background-size: 400% 400%;
-	animation: gradient 6s ease infinite; */
-/* 
-  -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0); 
-  box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0); */
-
-  -webkit-box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 0px 0px 0px 10px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-  box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 0px 0px 0px 10px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
 .btn-secondary {
@@ -249,4 +227,27 @@ textarea {
   transform: rotateY(180deg);
   width: 380px;
   height: 250px;
+}
+
+.about {
+  margin: 1rem;
+  padding: 2rem;
+  width: 55vw;
+}
+
+.button {
+  border-radius: 12%;
+  background-color: white;
+  width: 11rem;
+  height: 8rem;
+  margin: 1rem;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button:hover {
+  box-shadow: inset 0 0 0 2em var(--hover);
+  background-color: rgb(209, 216, 224);
+  transition-duration: 0.25s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
