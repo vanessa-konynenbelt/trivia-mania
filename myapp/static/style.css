@@ -66,17 +66,7 @@ textarea {
   font-weight: bold;
 }
 
-.trivia-container {
-  height: 40vh;
-  margin-top: 2rem;
-  display: flex; 
-  justify-content: center;
-  align-items: top;
-  flex-direction: row; 
-  flex-wrap: wrap;
-}
-
-.btn-secondary {
+.btn-secondary input{
   font-size: 1em;
   border-radius: 10%;
   display: flex; 
@@ -95,7 +85,7 @@ textarea {
 }
 
 
-.btn-secondary:hover {
+.btn-secondary:hover input:hover{
   text-decoration: none;
   background-color: #333;
   color: white;
@@ -117,13 +107,47 @@ textarea {
   display: flex; 
   flex-direction: column; 
   height: 40vh;
-  /* background: linear-gradient(-45deg, #c9c9c9, #f7f0f3, #b5b5b5, #898989);
-	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
-	height: 100vh; */
   margin: none !important;
 }
 
+.form-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red;
+  width: 40vw;
+}
+
+.form-el {
+  display: inline-block;
+  align-content: right;
+  text-align: right;
+  margin: 2rem;
+}
+
+.input {
+  float: right;
+}
+
+.label {
+  padding-right: 1rem;
+  display: inline-block;
+  text-align: right;
+}
+
+.trivia-container {
+  height: 40vh;
+  margin-top: 2rem;
+  display: flex; 
+  justify-content: center;
+  align-items: top;
+}
 
 @keyframes gradient {
 	0% {
