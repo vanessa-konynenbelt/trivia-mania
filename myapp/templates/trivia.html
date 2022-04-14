@@ -1,24 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
+<section>
+  <div class="title-secondary razor-secondary">
+    <h2>{{title}}</h2>
+  </div>
+</section>
 <div class="container">
-  <h1>{{title}}</h1>
-  <h2>Written by: {{trivias[0].author.username}}</h2>
-  <h3>Published: {{ trivias[0].date.strftime('%B %d, %Y') }}</h3>
-  {% for i in range(6) %}
-    {% if trivias[i].question|length and trivias[i].question|length%}
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-              <p>Question {{i+1}}</p>
-              <p>{{trivias[i].question}}</p>
-          </div> 
-          <div class="flip-card-back">
-              <p>Answer {{i+1}}</p>
-              <p>{{trivias[i].answer}}</p>
+  <div class="info">
+    <h2>Written by: {{trivias[0].author.username}} </h2>
+    <h3> {{ trivias[0].date.strftime('%B %d, %Y') }}</h3>
+  </div>
+    <div class="trivia-container">
+      {% for i in range(6) %}
+        {% if trivias[i].question|length and trivias[i].question|length%}
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <p>Question {{i+1}}</p>
+                  <p>{{trivias[i].question}}</p>
+              </div> 
+              <div class="flip-card-back">
+                  <p>Answer {{i+1}}</p>
+                  <p>{{trivias[i].answer}}</p>
+              </div>
+            </div>
           </div>
-        </div>
+        {% endif %}
+      {% endfor %}
+      {% if trivias[0].author == current_user %}
+      <div class="btns-secondary">
+        <a class="btn-secondary" href="{{ url_for('trivias.update', trivia_id=1) }}">Edit</a>
+        <form action="{{ url_for('trivias.delete_post', trivia_id=2) }}" method="POST">
+          <input class="btn-secondary" type="submit" value="Delete">
+        </form>
+        <a class="btn-secondary" href="{{url_for('core.index')}}">Back</a>
       </div>
     {% endif %}
-  {% endfor %}
+    </div> 
+    
 </div>
 {% endblock content %}
