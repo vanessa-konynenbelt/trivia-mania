@@ -204,13 +204,11 @@ input {
 
 .title-container {
   width: 80%;
-  /* margin-top: 2rem; */
   margin: auto;
   display: flex; 
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  border: 1px solid pink;
 }
 
 @keyframes gradient {
