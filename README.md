@@ -4,7 +4,7 @@ Trivia Mania is a full-stack Flask app to view themed trivia sets and create you
 
 # Getting Started
 
-Click [here](https://trivia-mania.herokuapp.com/) to view the app. 
+Click [here](https://trivia-mania.herokuapp.com/trivia) to view the app. 
 
 
 # Screenshots
