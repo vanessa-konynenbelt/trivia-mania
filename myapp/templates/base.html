@@ -6,6 +6,7 @@
     <link rel="icon" href="{{ url_for('static', filename='books.png')}}">
     <!-- <link rel="icon" href="{{ url_for('static', filename='lb2.png')}}"> -->
     <!-- <link rel="icon" href="{{ url_for('static', filename='brain.png')}}"> -->
+    <script src="https://kit.fontawesome.com/c911417510.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,33 +21,31 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </a>
-        <div class="nav-links">
-            <ul >   
-                <li class="nav-link">
-                    <a href="{{url_for('core.index')}}">Home</a>
+        <div class="nav-links"> 
+            <ul > 
+                <li>
+                    <a href="{{url_for('core.index')}}">Home </a>
                 </li>
-                <li class="nav-link">
+                <li>
                     <a href="{{url_for('core.info')}}">About</a>
                 </li>
                 {% if current_user.is_authenticated %}
-                <li class="nav-link">
+                <li>
                     <a href="{{url_for('users.logout')}}">Log Out</a>
                 </li>
-                <li class="nav-link">
+                <li>
                     <a href="{{url_for('users.account')}}">Account</a>
                 </li>
-                <li class="nav-link">
+                <li>
                     <a href="{{url_for('trivias.create_trivia')}}">Add New</a> 
                 </li>
                 {% else %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-link">
-                        <a href="{{url_for('users.login')}}">Log In</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="{{url_for('users.register')}}">Register</a>
-                    </li>
-                </ul>
+                <li>
+                    <a href="{{url_for('users.login')}}">Log In <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                </li>
+                <li >
+                    <a href="{{url_for('users.register')}}">Register <i class="fa-solid fa-user-plus"></i></a>
+                </li>
                 {% endif %}
             </ul>
         </div>
