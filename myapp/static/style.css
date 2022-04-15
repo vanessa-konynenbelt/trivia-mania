@@ -335,7 +335,7 @@ input {
   height: 280px;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;
   text-align: center;
 }
 
