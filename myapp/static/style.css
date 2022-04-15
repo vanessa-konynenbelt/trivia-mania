@@ -202,6 +202,17 @@ input {
   align-items: center;
 }
 
+.title-container {
+  width: 80%;
+  /* margin-top: 2rem; */
+  margin: auto;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid pink;
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
