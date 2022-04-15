@@ -38,8 +38,8 @@ class Trivia(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(140), nullable=False)
-    question = db.Column(db.String(240))
-    answer = db.Column(db.String(40))
+    question = db.Column(db.String(500))
+    answer = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def __init__(self, title, question, answer, user_id):
