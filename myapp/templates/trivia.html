@@ -5,38 +5,41 @@
     <h2>{{title}}</h2>
   </div>
 </section>
-<div class="info">
-  <h2>Written by: {{trivias[0].author.username}} </h2>
-  <h3> {{ trivias[0].date.strftime('%B %d, %Y') }}</h3>
-</div>
-<div class="parent-trivia-container">
-  <div class="trivia-container">
-    {% for i in range(6) %}
-      {% if trivias[i].question|length and trivias[i].question|length%}
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <p class="question-head">Question {{i+1}}</p>
-                <p class="question-body">{{trivias[i].question}}</p>
-            </div> 
-            <div class="flip-card-back">
-                <p class="answer-head">Answer {{i+1}}</p>
-                <p class="answer-body">{{trivias[i].answer}}</p>
+<div class="trivia-page">
+  <div class="info">
+    <h2>Written by: {{trivias[0].author.username}} </h2>
+    <h3> {{ trivias[0].date.strftime('%B %d, %Y') }}</h3>
+  </div>
+  <div class="parent-trivia-container">
+    <div class="trivia-container">
+      {% for i in range(6) %}
+        {% if trivias[i].question|length and trivias[i].question|length%}
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <p class="question-head">Question {{i+1}}</p>
+                  <p class="question-body">{{trivias[i].question}}</p>
+              </div> 
+              <div class="flip-card-back">
+                  <p class="answer-head">Answer {{i+1}}</p>
+                  <p class="answer-body">{{trivias[i].answer}}</p>
+              </div>
             </div>
           </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>   
-{% if trivias[0].author == current_user %}
-  <div class="parent-btns-container">
-    <div class="btns-secondary">
-      <form action="{{ url_for('trivias.delete_post', title=title) }}" method="POST">
-        <input class="btn-secondary" type="submit" value="Delete">
-      </form>
-      <a class="btn-secondary" href="{{url_for('core.index')}}">Back</a>
+        {% endif %}
+      {% endfor %}
     </div>
-  </div>
-{% endif %}
+  </div>   
+  {% if trivias[0].author == current_user %}
+    <div class="parent-btns-container">
+      <div class="btns-secondary">
+        <form action="{{ url_for('trivias.delete_post', title=title) }}" method="POST">
+          <input class="btn-secondary" type="submit" value="Delete">
+        </form>
+        <a class="btn-secondary" href="{{url_for('core.index')}}">Back</a>
+      </div>
+    </div>
+  {% endif %}
+  <div class="footer"></div>
+</div>
 {% endblock content %}

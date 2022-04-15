@@ -1,6 +1,6 @@
 # Trivia Mania
 
-Trivia Mania is a full-stack Flask app to view themed trivia sets and create your own! 
+Trivia Mania is a full-stack Flask app designed to view themed trivia sets and create your own! 
 
 ![Trivia Home](https://i.imgur.com/9DLOcPk.png)
 

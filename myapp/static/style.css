@@ -195,11 +195,16 @@ input {
 
 .trivia-container {
   width: 80%;
-  margin-top: 2rem;
+  margin: auto;
   display: flex; 
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.trivia-page {
+  display: flex; 
+  flex-direction: column;
 }
 
 .title-container {
@@ -281,8 +286,8 @@ input {
 
 .flip-card {
   background-color: transparent;
-  width: 380px;
-  height: 250px;
+  width: 360px;
+  height: 280px;
   perspective: 1000px;
   margin: 2rem;
   /* flex: 1 0 45%;  */
@@ -297,8 +302,8 @@ input {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   /* border: 1px solid black; */
-  width: 380px;
-  height: 250px;
+  width: 360px;
+  height: 280px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -316,8 +321,8 @@ input {
 
 .flip-card-front {
   color: black;
-  width: 380px;
-  height: 250px;
+  width: 360px;
+  height: 280px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -326,8 +331,8 @@ input {
 .flip-card-back {
   color: black;
   transform: rotateY(180deg);
-  width: 380px;
-  height: 250px;
+  width: 360px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   gap: 3rem;
